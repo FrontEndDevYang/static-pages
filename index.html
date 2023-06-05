@@ -1,1 +1,71 @@
-测试
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>IPC</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=11, chrome=1">
+    <meta name="New-Web-Login" version='6.0' />
+    <script>
+        document.write('<link rel="stylesheet" type="text/css" href="/views/component/lsCpt.css?v=' + new Date().getTime() + '">');
+        document.write('<script src="/views/config/pluginversion.js?v=' + new Date().getTime() + '"><\/script>');
+        document.write('<script src="./dynamic.js?v=' + new Date().getTime() + '"><\/script>');
+        document.write('<script src="./index.js?v=' + new Date().getTime() + '"><\/script>');
+    </script>
+</head>
+
+<body>
+    <div class="lsdot login-body">
+        <div class="header">
+            <div class="logo"></div>
+            <div class="user-info" id="userInfo">
+                {{= lsRender("customSelect", {"list": OPT_LANG_LIST, "attr": { "id": "selLang", "class": "width143"}, "style": "lang-select" }) }}
+            </div>
+        </div>
+        <!-- 密码安全提示框, 样式原因, DOM位置不能改变 -->
+        <div class="fullscreen lshide tip-pwd-securt" id="tipPwdSecurt">
+        </div>
+        <div id="tipEdit" class="tip-edit lshide">
+            <div class="tip-header">
+                <div><span class="tip-icon sttips"></span><label>{{= lang.sttips }}</label></div>
+            </div>
+            <div class="tip-content">
+                <label>{{= lang.pwdTips10 }}</label>
+            </div>
+            <div class="tip-contoll">
+                <input type="button" class="pointer main-btn" value="{{= lang.pwdTips11 }}" />
+                <input type="button" class="pointer dis-btn" value="{{= lang.pwdTips12 }}" />
+            </div>
+        </div>
+        <div class="div-login">
+            <div id="loginDlg" class="login-content">
+                <div class="login-head"></div>
+                <div class="group group-first-child">
+                    <input type="text" class="login-input J-login-input" id="userName" maxlength="31" placeholder="{{= lang.userName }}"
+                        lsSetter="login.username." tabindex="1" />
+                    <i class="login-icon-name"></i>
+                </div>
+                <div class="group pwd-block">
+                    <input type="password" class="login-input J-login-input" id="pwd" maxlength="31" placeholder="{{= lang.pwd }}"
+                        lsSetter="login.password." tabindex="2" />
+                    <i class="login-icon-pwd"></i><i class="show-pwd J-show-pwd"></i>
+                </div>
+                <div class="forget-pwd">
+                    <a href="{{=URL_PSW}}" class="font-size12">{{= lang.forgetpsw }}</a>
+                </div>
+                <div class="login-btn">
+                    <button class="btn-login J-btn-login">{{=lang.loginBtn}}</button>
+                </div>
+            </div>
+            <div id="footer" class="hide footer">{{= lang.companyInfo }}</div>
+        </div>
+        <div id="alertBlock" class="hide">
+            <div class="alert-block-content J-alert-block-content"></div>
+        </div>
+    </div>
+</body>
+
+</html>
